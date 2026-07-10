@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MadhavPrem | Bangles Collection</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #d4a24c;
+      --gold-dark: #b98a36;
+      --dark-red: #5b0f1b;
+      --bg-red: #7a0f23;
+      --white: #ffffff;
+      --light: #f7f2ee;
+      --text: #2f1f1d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0b0b, #1a0e12 60%, #2e1318 100%);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+
+    header {
+      background: var(--light);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #5f534f;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 72vh;
+      background: linear-gradient(rgba(88, 10, 24, 0.78), rgba(88, 10, 24, 0.78)),
+        url('Images/Bankales(1).jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.2rem;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.3rem, 4vw, 3.3rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: #f7e9de;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-dark);
+    }
+
+    .offer-banner {
+      background: linear-gradient(90deg, #f7e7cf, #fff5e5);
+      color: var(--text);
+      text-align: center;
+      padding: 0.9rem 1rem;
+      font-weight: 600;
+    }
+
+    .offer-banner strong {
+      color: var(--bg-red);
+    }
+
+    .products {
+      padding: 3rem 1.2rem 4rem;
+      background: linear-gradient(180deg, #faf7f3 0%, #f5ebdf 100%);
+      color: var(--text);
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+    }
+
+    .product-card h4 {
+      margin: 0.7rem 0 0.3rem;
+      font-size: 1rem;
+    }
+
+    .price {
+      color: var(--bg-red);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .product-card button {
+      width: 100%;
+      border: none;
+      background: var(--gold);
+      color: #fff;
+      padding: 0.7rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .product-card button:hover {
+      background: var(--gold-dark);
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -380px;
+      width: min(92vw, 360px);
+      height: 100vh;
+      background: #fffaf5;
+      color: var(--text);
+      box-shadow: -10px 0 25px rgba(0, 0, 0, 0.2);
+      padding: 1.2rem;
+      transition: right 0.3s ease;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.open {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 0.7rem;
+      border: 1px solid #eee1d4;
+      border-radius: 10px;
+    }
+
+    .cart-empty {
+      color: #8d745d;
+      padding: 1rem 0;
+    }
+
+    .cart-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cart-btn.primary {
+      background: var(--bg-red);
+      color: #fff;
+    }
+
+    .cart-btn.secondary {
+      background: #f3e3d0;
+      color: var(--text);
+    }
+
+    @media (max-width: 992px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1rem 1.2rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">MadhavPrem</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../earrings/earrings.html">Earrings</a>
+      <a href="../Neckales/">Necklaces</a>
+      <a href="#order">Order Now</a>
+    </nav>
+    <button class="cart-btn secondary" id="cartToggle" type="button">🛒 Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-btn secondary" id="closeCart" type="button">Close</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">No items yet.</div>
+    </div>
+    <div style="display:grid; gap:0.7rem; margin-top:0.8rem;">
+      <a class="cart-btn primary" href="../index.html#order" style="text-align:center;">Go to Order Form</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Elegant Bangles for Every Celebration</h1>
+      <p>Choose from sleek, regal, and festive bangles that bring charm to your look for weddings, parties, and daily
+        wear.</p>
+      <a class="btn btn-primary" href="#products">Explore Bangles</a>
+    </div>
+  </section>
+
+  <div class="offer-banner">Special offer: buy more than 5 pieces and get <strong>30% discount</strong>.</div>
+
+  <section class="products" id="products">
+    <h2 class="section-title">Bangles Collection</h2>
+    <p style="text-align:center; color:#7b5d3d; margin-bottom:1.2rem;">A graceful collection of bangles that blends
+      tradition with modern charm.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="Images/Bankales(1).jpg" alt="Bangle" />
+        <h4>Classic Gold Bangle</h4>
+        <div class="price">₹599</div>
+        <button type="button" data-name="Classic Gold Bangle" data-price="599">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(2).jpg" alt="Bangle" />
+        <h4>Temple Style Bangle</h4>
+        <div class="price">₹699</div>
+        <button type="button" data-name="Temple Style Bangle" data-price="699">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(3).jpg" alt="Bangle" />
+        <h4>Wedding Kundan Bangle</h4>
+        <div class="price">₹899</div>
+        <button type="button" data-name="Wedding Kundan Bangle" data-price="899">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(4).jpg" alt="Bangle" />
+        <h4>Meenakari Bangle</h4>
+        <div class="price">₹799</div>
+        <button type="button" data-name="Meenakari Bangle" data-price="799">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(5).jpg" alt="Bangle" />
+        <h4>Stone Work Bangle</h4>
+        <div class="price">₹749</div>
+        <button type="button" data-name="Stone Work Bangle" data-price="749">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(6).jpg" alt="Bangle" />
+        <h4>Daily Wear Bangle</h4>
+        <div class="price">₹549</div>
+        <button type="button" data-name="Daily Wear Bangle" data-price="549">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(7).jpg" alt="Bangle" />
+        <h4>Bridal Luxe Bangle</h4>
+        <div class="price">₹1099</div>
+        <button type="button" data-name="Bridal Luxe Bangle" data-price="1099">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(8).jpg" alt="Bangle" />
+        <h4>Royal Pearl Bangle</h4>
+        <div class="price">₹849</div>
+        <button type="button" data-name="Royal Pearl Bangle" data-price="849">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const cartPanel = document.getElementById('cartPanel');
+    const cartToggle = document.getElementById('cartToggle');
+    const closeCart = document.getElementById('closeCart');
+    const cartItems = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const addButtons = document.querySelectorAll('[data-name]');
+    const CART_STORAGE_KEY = 'madhavprem-cart';
+    let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+
+    function saveCart() {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    }
+
+    function renderCart() {
+      cartItems.innerHTML = '';
+      if (!cart.length) {
+        cartItems.innerHTML = '<div class="cart-empty">No items yet.</div>';
+        cartCount.textContent = '0';
+        return;
+      }
+      cartCount.textContent = cart.length;
+      cart.forEach((item, index) => {
+        const row = document.createElement('div');
+        row.className = 'cart-item';
+        row.innerHTML = `<div><strong>${item.name}</strong><div>₹${item.price}</div></div><button class="cart-btn secondary" type="button" data-index="${index}">Remove</button>`;
+        cartItems.appendChild(row);
+      });
+      cartItems.querySelectorAll('[data-index]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          cart.splice(Number(btn.getAttribute('data-index')), 1);
+          saveCart();
+          renderCart();
+        });
+      });
+    }
+
+    addButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        cart.push({ name: button.getAttribute('data-name'), price: button.getAttribute('data-price') });
+        saveCart();
+        renderCart();
+        cartPanel.classList.add('open');
+      });
+    });
+
+    cartToggle.addEventListener('click', () => cartPanel.classList.add('open'));
+    closeCart.addEventListener('click', () => cartPanel.classList.remove('open'));
+    renderCart();
+  </script>
+</body>
+
+</html>
