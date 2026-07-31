@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MadhavPrem | Necklace Collection</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">MadhavPrem</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../earrings/earrings.html">Earrings</a>
+      <a href="../Bangles/">Bangles</a>
+      <a href="#order">Order Now</a>
+    </nav>
+    <button class="cart-btn secondary" id="cartToggle" type="button">🛒 Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-btn secondary" id="closeCart" type="button">Close</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">No items yet.</div>
+    </div>
+    <div style="display:grid; gap:0.7rem; margin-top:0.8rem;">
+      <a class="cart-btn primary" href="../index.html#order" style="text-align:center;">Go to Order Form</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Statement Necklaces for Every Occasion</h1>
+      <p>Discover regal, lightweight, and sparkling necklace sets designed for bridal, festive, and everyday elegance.
+      </p>
+      <a class="btn btn-primary" href="#products">Explore Necklaces</a>
+    </div>
+  </section>
+
+  <div class="offer-banner">Special offer: buy more than 5 pieces and get <strong>30% discount</strong>.</div>
+
+  <section class="products" id="products">
+    <h2 class="section-title">Necklace Collection</h2>
+    <p style="text-align:center; color:#7b5d3d; margin-bottom:1.2rem;">Discover statement pieces that bring richness,
+      glow, and elegance to every occasion.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/Neackales(1).jpg" alt="Necklace" />
+        <h4>Classic Layered Necklace</h4>
+        <div class="price">₹799</div>
+        <button type="button" data-name="Classic Layered Necklace" data-price="799">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/Neackales(2).jpg" alt="Necklace" />
+        <h4>Bridal Choker Set</h4>
+        <div class="price">₹1099</div>
+        <button type="button" data-name="Bridal Choker Set" data-price="1099">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/Neackales(3).jpg" alt="Necklace" />
+        <h4>Temple Pendant Necklace</h4>
+        <div class="price">₹899</div>
+        <button type="button" data-name="Temple Pendant Necklace" data-price="899">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/Neackales(4).jpg" alt="Necklace" />
+        <h4>Kundan Neckpiece</h4>
+        <div class="price">₹1299</div>
+        <button type="button" data-name="Kundan Neckpiece" data-price="1299">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/Neackales(5).jpg" alt="Necklace" />
+        <h4>Minimal Party Necklace</h4>
+        <div class="price">₹749</div>
+        <button type="button" data-name="Minimal Party Necklace" data-price="749">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/Neackales(6).jpg" alt="Necklace" />
+        <h4>Stone Drop Necklace</h4>
+        <div class="price">₹849</div>
+        <button type="button" data-name="Stone Drop Necklace" data-price="849">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/Neackales(7).jpg" alt="Necklace" />
+        <h4>Royal Pearl Set</h4>
+        <div class="price">₹949</div>
+        <button type="button" data-name="Royal Pearl Set" data-price="949">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="images/Neackales(8).jpg" alt="Necklace" />
+        <h4>Festive Long Necklace</h4>
+        <div class="price">₹899</div>
+        <button type="button" data-name="Festive Long Necklace" data-price="899">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="cart.js"></script>
+  <script src="../chatbot.js"></script>
+</body>
+
+</html>
