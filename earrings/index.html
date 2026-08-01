@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MadhavPrem | Bangles Collection</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">MadhavPrem</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../earrings/earrings.html">Earrings</a>
+      <a href="../Neckales/">Necklaces</a>
+      <a href="#order">Order Now</a>
+    </nav>
+    <button class="cart-btn secondary" id="cartToggle" type="button">🛒 Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-btn secondary" id="closeCart" type="button">Close</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">No items yet.</div>
+    </div>
+    <div style="display:grid; gap:0.7rem; margin-top:0.8rem;">
+      <a class="cart-btn primary" href="../index.html#order" style="text-align:center;">Go to Order Form</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Elegant Bangles for Every Celebration</h1>
+      <p>Choose from sleek, regal, and festive bangles that bring charm to your look for weddings, parties, and daily
+        wear.</p>
+      <a class="btn btn-primary" href="#products">Explore Bangles</a>
+    </div>
+  </section>
+
+  <div class="offer-banner">Special offer: buy more than 5 pieces and get <strong>30% discount</strong>.</div>
+
+  <section class="products" id="products">
+    <h2 class="section-title">Bangles Collection</h2>
+    <p style="text-align:center; color:#7b5d3d; margin-bottom:1.2rem;">A graceful collection of bangles that blends
+      tradition with modern charm.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="Images/Bankales(1).jpg" alt="Bangle" />
+        <h4>Classic Gold Bangle</h4>
+        <div class="price">₹599</div>
+        <button type="button" data-name="Classic Gold Bangle" data-price="599">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(2).jpg" alt="Bangle" />
+        <h4>Temple Style Bangle</h4>
+        <div class="price">₹699</div>
+        <button type="button" data-name="Temple Style Bangle" data-price="699">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(3).jpg" alt="Bangle" />
+        <h4>Wedding Kundan Bangle</h4>
+        <div class="price">₹899</div>
+        <button type="button" data-name="Wedding Kundan Bangle" data-price="899">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(4).jpg" alt="Bangle" />
+        <h4>Meenakari Bangle</h4>
+        <div class="price">₹799</div>
+        <button type="button" data-name="Meenakari Bangle" data-price="799">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(5).jpg" alt="Bangle" />
+        <h4>Stone Work Bangle</h4>
+        <div class="price">₹749</div>
+        <button type="button" data-name="Stone Work Bangle" data-price="749">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(6).jpg" alt="Bangle" />
+        <h4>Daily Wear Bangle</h4>
+        <div class="price">₹549</div>
+        <button type="button" data-name="Daily Wear Bangle" data-price="549">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(7).jpg" alt="Bangle" />
+        <h4>Bridal Luxe Bangle</h4>
+        <div class="price">₹1099</div>
+        <button type="button" data-name="Bridal Luxe Bangle" data-price="1099">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="Images/Bankales(8).jpg" alt="Bangle" />
+        <h4>Royal Pearl Bangle</h4>
+        <div class="price">₹849</div>
+        <button type="button" data-name="Royal Pearl Bangle" data-price="849">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="cart.js"></script>
+  <script src="../chatbot.js"></script>
+</body>
+
+</html>
