@@ -5,38 +5,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MadhavPrem – Premium Artificial Jewelry</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="MadhavPrem — elegant artificial jewelry for weddings, festive events, parties, and daily wear. Shop earrings, bangles, necklaces and bridal sets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="assets/css/theme.css" />
 </head>
 
 <body>
-  <header>
-    <div class="logo">MadhavPrem</div>
-    <nav>
-      <a href="earrings/earrings.html">Earrings</a>
-      <a href="Bangles/">Bracelets</a>
-      <a href="Neckales/">Necklaces</a>
-      <a href="#collections">Bridal</a>
+  <header class="site-header">
+    <div class="navbar">
+      <a href="index.html" class="logo">MadhavPrem<span>Jewelry</span></a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="earrings/index.html">Earrings</a>
+        <a href="Bangles/index.html">Bangles</a>
+        <a href="Neckales/index.html">Necklaces</a>
+        <a href="#order">Order Now</a>
+      </nav>
+
+      <div class="nav-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search jewelry…" data-nav-search />
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="wishlistToggle" type="button" aria-label="Wishlist">♡<span class="icon-badge" data-wishlist-count>0</span></button>
+        <button class="icon-btn" id="cartToggle" type="button" aria-label="Cart">🛍<span class="icon-badge" data-cart-count>0</span></button>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="earrings/index.html">Earrings</a>
+      <a href="Bangles/index.html">Bangles</a>
+      <a href="Neckales/index.html">Necklaces</a>
       <a href="#order">Order Now</a>
-    </nav>
-    <div class="icons">
-      <button class="icon-btn" id="cartToggle" type="button">🛒 Cart <span id="cartCount">0</span></button>
-      <a class="icon-btn" href="earrings/earrings.html">✨ Shop</a>
+      <div class="mobile-menu-actions">
+        <button type="button" id="mobileWishlistToggle">♡ Wishlist <span class="icon-badge" data-wishlist-count>0</span></button>
+        <button type="button" id="mobileCartToggle">🛍 Cart <span class="icon-badge" data-cart-count>0</span></button>
+      </div>
+      <div class="nav-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search jewelry…" data-nav-search />
+      </div>
     </div>
   </header>
 
-  <div class="cart-panel" id="cartPanel">
-    <div class="cart-header">
-      <h3>Your Cart</h3>
-      <button class="cart-btn secondary" id="closeCart" type="button">Close</button>
+  <div class="drawer-overlay"></div>
+
+  <aside class="drawer" id="cartPanel">
+    <div class="drawer-header"><h3>Your Cart</h3><button class="drawer-close" id="closeCart" type="button">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-footer">
+      <div class="li-total" id="cartTotal"></div>
+      <a class="btn btn-primary btn-block" href="#order">Go to Order Form</a>
     </div>
-    <div class="cart-items" id="cartItems">
-      <div class="cart-empty">No items in your cart yet.</div>
-    </div>
-    <div class="cart-actions">
-      <button class="cart-btn primary" id="checkoutBtn" type="button">Send Cart to Order</button>
-      <a class="cart-btn secondary" href="#order" style="display:block; text-align:center;">Go to Order Form</a>
-    </div>
-  </div>
+  </aside>
+
+  <aside class="drawer" id="wishlistPanel">
+    <div class="drawer-header"><h3>Wishlist</h3><button class="drawer-close" id="closeWishlist" type="button">✕</button></div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
 
   <section class="hero">
     <div class="hero-content">
@@ -55,7 +85,7 @@
     Special offer: Order more than 5 pieces and receive <strong>30% discount</strong> on your order.
   </div>
 
-  <section class="feature-strip">
+  <section class="feature-strip reveal">
     <div class="feature-card">
       <h3>Premium Finish</h3>
       <p>Elegant designs crafted to look luxurious and feel timeless.</p>
@@ -71,75 +101,64 @@
   </section>
 
   <section class="section categories" id="collections">
-    <h2>Featured Collections</h2>
-    <p class="section-intro">A curated selection of statement jewelry pieces designed for weddings, festive evenings,
-      and everyday elegance.</p>
+    <div class="section-head reveal">
+      <h2>Featured Collections</h2>
+      <p>A curated selection of statement jewelry pieces designed for weddings, festive evenings, and everyday elegance.</p>
+    </div>
     <div class="cat-grid">
-      <div class="cat-card">
+      <div class="cat-card reveal">
         <div class="card-img">
-          <img src="home/category-earrings.jpg" alt="Classic Earrings">
-          <div class="overlay">
-            <h3>Earrings</h3>
-            <p>Jhumkas, chandbalis, and statement drops</p>
-          </div>
+          <img src="home/category-earrings.webp" alt="Classic Earrings" loading="lazy">
+          <div class="overlay"><h3>Earrings</h3><p>Jhumkas, chandbalis, and statement drops</p></div>
         </div>
         <div class="card-content">
           <h3>Classic Earrings</h3>
           <p>Elegant pairs for daily and festive wear</p>
           <div class="card-actions">
-            <button type="button" data-name="Classic Earrings" data-price="799">Add to Cart</button>
-            <a class="link-btn" href="earrings/earrings.html">View details →</a>
+            <button type="button" data-name="Classic Earrings" data-price="200">Add to Cart</button>
+            <a class="link-btn" href="earrings/index.html">View details →</a>
           </div>
         </div>
       </div>
-      <div class="cat-card">
+      <div class="cat-card reveal">
         <div class="card-img">
-          <img src="Bangles/Images/Bankales(1).jpg" alt="Bracelets">
-          <div class="overlay">
-            <h3>Bracelets</h3>
-            <p>Delicate and bold styles for every look</p>
-          </div>
+          <img src="Bangles/Images/Bankales(1).webp" alt="Bracelets" loading="lazy">
+          <div class="overlay"><h3>Bracelets</h3><p>Delicate and bold styles for every look</p></div>
         </div>
         <div class="card-content">
           <h3>Designer Bracelet</h3>
           <p>Beautiful shimmer for party and bridal looks</p>
           <div class="card-actions">
-            <button type="button" data-name="Designer Bracelet" data-price="999">Add to Cart</button>
-            <a class="link-btn" href="Bangles/">View details →</a>
+            <button type="button" data-name="Designer Bracelet" data-price="599">Add to Cart</button>
+            <a class="link-btn" href="Bangles/index.html">View details →</a>
           </div>
         </div>
       </div>
-      <div class="cat-card">
+      <div class="cat-card reveal">
         <div class="card-img">
-          <img src="Neckales/images/Neackales(1).jpg" alt="Necklaces">
-          <div class="overlay">
-            <h3>Necklaces</h3>
-            <p>Elegant sets for weddings and parties</p>
-          </div>
+          <img src="Neckales/images/Neackales(1).webp" alt="Necklaces" loading="lazy">
+          <div class="overlay"><h3>Necklaces</h3><p>Elegant sets for weddings and parties</p></div>
         </div>
         <div class="card-content">
           <h3>Statement Necklace</h3>
           <p>Rich traditional look with modern polish</p>
           <div class="card-actions">
-            <button type="button" data-name="Statement Necklace" data-price="1299">Add to Cart</button>
-            <a class="link-btn" href="Neckales/">View details →</a>
+            <button type="button" data-name="Statement Necklace" data-price="799">Add to Cart</button>
+            <a class="link-btn" href="Neckales/index.html">View details →</a>
           </div>
         </div>
       </div>
-      <div class="cat-card">
+      <div class="cat-card reveal">
         <div class="card-img">
-          <img src="Neckales/images/Neackales(2).jpg" alt="Bridal">
-          <div class="overlay">
-            <h3>Bridal</h3>
-            <p>Royal and traditional bridal jewelry</p>
-          </div>
+          <img src="Neckales/images/Neackales(2).webp" alt="Bridal" loading="lazy">
+          <div class="overlay"><h3>Bridal</h3><p>Royal and traditional bridal jewelry</p></div>
         </div>
         <div class="card-content">
           <h3>Bridal Set</h3>
           <p>Complete set for your special day</p>
           <div class="card-actions">
             <button type="button" data-name="Bridal Set" data-price="1899">Add to Cart</button>
-            <a class="link-btn" href="#order">View details →</a>
+            <a class="link-btn" href="Neckales/index.html">View details →</a>
           </div>
         </div>
       </div>
@@ -148,21 +167,14 @@
 
   <section class="section order-section" id="order">
     <div class="order-wrap">
-      <div class="order-card">
+      <div class="order-card reveal">
         <h2>Order Your Favorite Pieces</h2>
         <p>Share your details below and we will receive your order request directly at madhavprem3aug@gmail.com.</p>
 
-        <form
-          id="orderForm"
-          action="https://formsubmit.co/madhavprem3aug@gmail.com"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <!-- FormSubmit config -->
-          <input type="hidden" name="_subject"  value="🛍️ New Order Request – MadhavPrem" />
-          <input type="hidden" name="_captcha"  value="false" />
+        <form id="orderForm" action="https://formsubmit.co/madhavprem3aug@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="🛍️ New Order Request – MadhavPrem" />
+          <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next"     value="https://madhavprem.in/?success=1" />
           <input type="hidden" id="discountField" name="Discount" value="No discount yet" />
           <input type="hidden" id="cartSummaryField" name="Cart_Items" value="" />
 
@@ -206,18 +218,15 @@
 
           <p class="form-note">📧 Your order will be emailed to madhavprem3aug@gmail.com. We'll confirm via phone/WhatsApp.</p>
 
-          <button class="submit-btn" type="submit" id="submitBtn">
-            Send Order Request ✉️
-          </button>
+          <button class="submit-btn" type="submit" id="submitBtn">Send Order Request ✉️</button>
 
-          <!-- Shown after ?success=1 redirect back to page -->
           <div id="successMessage" class="success-message">
             ✅ Your order has been sent successfully! We'll contact you soon on your phone/WhatsApp.
           </div>
         </form>
       </div>
 
-      <div class="info-card">
+      <div class="info-card reveal">
         <h3>Why customers love MadhavPrem</h3>
         <ul>
           <li>Elegant styles for weddings and festive events</li>
@@ -225,17 +234,19 @@
           <li>Fast response for custom and bulk orders</li>
           <li>Easy ordering with image upload support</li>
         </ul>
-        <div class="discount-box active" style="margin-top:1rem;">🎉 Bulk order bonus: 30% discount for orders above 5
-          pieces.</div>
+        <div class="discount-box active" style="margin-top:1rem;">🎉 Bulk order bonus: 30% discount for orders above 5 pieces.</div>
       </div>
     </div>
   </section>
 
-  <footer>
+  <footer class="site-footer">
     © 2026 MadhavPrem. Elegant jewelry for every special moment.
   </footer>
 
-  <script src="main.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/catalog.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/order-form.js"></script>
   <script src="chatbot.js"></script>
 </body>
 

@@ -5,102 +5,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MadhavPrem | Bangles Collection</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Shop classic, temple-style, kundan, and bridal bangles — premium artificial jewelry from MadhavPrem." />
+  <link rel="stylesheet" href="../assets/css/theme.css" />
 </head>
 
-<body>
-  <header>
-    <div class="logo">MadhavPrem</div>
-    <nav>
+<body data-category="bangles">
+  <header class="site-header">
+    <div class="navbar">
+      <a href="../index.html" class="logo">MadhavPrem<span>Jewelry</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../earrings/index.html">Earrings</a>
+        <a href="index.html" class="active">Bangles</a>
+        <a href="../Neckales/index.html">Necklaces</a>
+        <a href="../index.html#order">Order Now</a>
+      </nav>
+      <div class="nav-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search jewelry…" data-nav-search />
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="wishlistToggle" type="button" aria-label="Wishlist">♡<span class="icon-badge" data-wishlist-count>0</span></button>
+        <button class="icon-btn" id="cartToggle" type="button" aria-label="Cart">🛍<span class="icon-badge" data-cart-count>0</span></button>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu">
       <a href="../index.html">Home</a>
-      <a href="../earrings/earrings.html">Earrings</a>
-      <a href="../Neckales/">Necklaces</a>
-      <a href="#order">Order Now</a>
-    </nav>
-    <button class="cart-btn secondary" id="cartToggle" type="button">🛒 Cart <span id="cartCount">0</span></button>
+      <a href="../earrings/index.html">Earrings</a>
+      <a href="index.html">Bangles</a>
+      <a href="../Neckales/index.html">Necklaces</a>
+      <a href="../index.html#order">Order Now</a>
+    </div>
   </header>
 
-  <div class="cart-panel" id="cartPanel">
-    <div class="cart-header">
-      <h3>Your Cart</h3>
-      <button class="cart-btn secondary" id="closeCart" type="button">Close</button>
+  <div class="drawer-overlay"></div>
+  <aside class="drawer" id="cartPanel">
+    <div class="drawer-header"><h3>Your Cart</h3><button class="drawer-close" id="closeCart" type="button">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-footer">
+      <div class="li-total" id="cartTotal"></div>
+      <a class="btn btn-primary btn-block" href="../index.html#order">Go to Order Form</a>
     </div>
-    <div class="cart-items" id="cartItems">
-      <div class="cart-empty">No items yet.</div>
-    </div>
-    <div style="display:grid; gap:0.7rem; margin-top:0.8rem;">
-      <a class="cart-btn primary" href="../index.html#order" style="text-align:center;">Go to Order Form</a>
-    </div>
-  </div>
+  </aside>
+  <aside class="drawer" id="wishlistPanel">
+    <div class="drawer-header"><h3>Wishlist</h3><button class="drawer-close" id="closeWishlist" type="button">✕</button></div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
 
   <section class="hero">
     <div class="hero-content">
+      <div class="hero-badge">Bangles &amp; Bracelets</div>
       <h1>Elegant Bangles for Every Celebration</h1>
-      <p>Choose from sleek, regal, and festive bangles that bring charm to your look for weddings, parties, and daily
-        wear.</p>
+      <p>Choose from sleek, regal, and festive bangles that bring charm to your look for weddings, parties, and daily wear.</p>
       <a class="btn btn-primary" href="#products">Explore Bangles</a>
     </div>
   </section>
 
   <div class="offer-banner">Special offer: buy more than 5 pieces and get <strong>30% discount</strong>.</div>
 
-  <section class="products" id="products">
-    <h2 class="section-title">Bangles Collection</h2>
-    <p style="text-align:center; color:#7b5d3d; margin-bottom:1.2rem;">A graceful collection of bangles that blends
-      tradition with modern charm.</p>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="Images/Bankales(1).jpg" alt="Bangle" />
-        <h4>Classic Gold Bangle</h4>
-        <div class="price">₹599</div>
-        <button type="button" data-name="Classic Gold Bangle" data-price="599">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Images/Bankales(2).jpg" alt="Bangle" />
-        <h4>Temple Style Bangle</h4>
-        <div class="price">₹699</div>
-        <button type="button" data-name="Temple Style Bangle" data-price="699">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Images/Bankales(3).jpg" alt="Bangle" />
-        <h4>Wedding Kundan Bangle</h4>
-        <div class="price">₹899</div>
-        <button type="button" data-name="Wedding Kundan Bangle" data-price="899">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Images/Bankales(4).jpg" alt="Bangle" />
-        <h4>Meenakari Bangle</h4>
-        <div class="price">₹799</div>
-        <button type="button" data-name="Meenakari Bangle" data-price="799">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Images/Bankales(5).jpg" alt="Bangle" />
-        <h4>Stone Work Bangle</h4>
-        <div class="price">₹749</div>
-        <button type="button" data-name="Stone Work Bangle" data-price="749">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Images/Bankales(6).jpg" alt="Bangle" />
-        <h4>Daily Wear Bangle</h4>
-        <div class="price">₹549</div>
-        <button type="button" data-name="Daily Wear Bangle" data-price="549">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Images/Bankales(7).jpg" alt="Bangle" />
-        <h4>Bridal Luxe Bangle</h4>
-        <div class="price">₹1099</div>
-        <button type="button" data-name="Bridal Luxe Bangle" data-price="1099">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Images/Bankales(8).jpg" alt="Bangle" />
-        <h4>Royal Pearl Bangle</h4>
-        <div class="price">₹849</div>
-        <button type="button" data-name="Royal Pearl Bangle" data-price="849">Add to Cart</button>
-      </div>
+  <section class="section products" id="products">
+    <div class="section-head reveal">
+      <h2 class="section-title">Bangles Collection</h2>
+      <p class="section-intro">A graceful collection of bangles that blends tradition with modern charm.</p>
     </div>
+
+    <div class="toolbar">
+      <div class="toolbar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" id="toolbarSearch" placeholder="Search bangles…" />
+      </div>
+      <div class="chip-row">
+        <button type="button" class="chip active" data-tag="all">All</button>
+        <button type="button" class="chip" data-tag="wedding">Wedding</button>
+        <button type="button" class="chip" data-tag="festive">Festive</button>
+        <button type="button" class="chip" data-tag="party">Party</button>
+        <button type="button" class="chip" data-tag="daily">Daily</button>
+      </div>
+      <select id="toolbarSort" class="toolbar-sort">
+        <option value="">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <p class="result-count" id="resultCount"></p>
+
+    <div class="product-grid" data-catalog="bangles"></div>
   </section>
 
-  <script src="cart.js"></script>
+  <footer class="site-footer">© 2026 MadhavPrem. Elegant jewelry for every special moment.</footer>
+
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/catalog.js"></script>
+  <script src="../assets/js/ui.js"></script>
   <script src="../chatbot.js"></script>
 </body>
 
