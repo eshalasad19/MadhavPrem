@@ -5,102 +5,109 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MadhavPrem | Necklace Collection</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Shop layered, choker, kundan, and bridal necklace sets — premium artificial jewelry from MadhavPrem." />
+  <link rel="stylesheet" href="../assets/css/theme.css" />
 </head>
 
-<body>
-  <header>
-    <div class="logo">MadhavPrem</div>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../earrings/earrings.html">Earrings</a>
-      <a href="../Bangles/">Bangles</a>
-      <a href="#order">Order Now</a>
-    </nav>
-    <button class="cart-btn secondary" id="cartToggle" type="button">🛒 Cart <span id="cartCount">0</span></button>
+<body data-category="necklaces">
+  <header class="site-header">
+    <div class="navbar">
+      <a href="../index.html" class="logo">MadhavPrem<span>Jewelry</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../earrings/index.html">Earrings</a>
+        <a href="../Bangles/index.html">Bangles</a>
+        <a href="index.html" class="active">Necklaces</a>
+        <a href="../index.html#order">Order Now</a>
+      </nav>
+      <div class="nav-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search jewelry…" data-nav-search />
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="wishlistToggle" type="button" aria-label="Wishlist">♡<span class="icon-badge" data-wishlist-count>0</span></button>
+        <button class="icon-btn" id="cartToggle" type="button" aria-label="Cart">🛍<span class="icon-badge" data-cart-count>0</span></button>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
   </header>
 
-  <div class="cart-panel" id="cartPanel">
-    <div class="cart-header">
-      <h3>Your Cart</h3>
-      <button class="cart-btn secondary" id="closeCart" type="button">Close</button>
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="../earrings/index.html">Earrings</a>
+    <a href="../Bangles/index.html">Bangles</a>
+    <a href="index.html">Necklaces</a>
+    <a href="../index.html#order">Order Now</a>
+    <div class="mobile-menu-actions">
+      <button type="button" id="mobileWishlistToggle">♡ Wishlist <span class="icon-badge" data-wishlist-count>0</span></button>
+      <button type="button" id="mobileCartToggle">🛍 Cart <span class="icon-badge" data-cart-count>0</span></button>
     </div>
-    <div class="cart-items" id="cartItems">
-      <div class="cart-empty">No items yet.</div>
-    </div>
-    <div style="display:grid; gap:0.7rem; margin-top:0.8rem;">
-      <a class="cart-btn primary" href="../index.html#order" style="text-align:center;">Go to Order Form</a>
+    <div class="nav-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Search jewelry…" data-nav-search />
     </div>
   </div>
 
+  <div class="drawer-overlay"></div>
+  <aside class="drawer" id="cartPanel">
+    <div class="drawer-header"><h3>Your Cart</h3><button class="drawer-close" id="closeCart" type="button">✕</button></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-footer">
+      <div class="li-total" id="cartTotal"></div>
+      <a class="btn btn-primary btn-block" href="../index.html#order">Go to Order Form</a>
+    </div>
+  </aside>
+  <aside class="drawer" id="wishlistPanel">
+    <div class="drawer-header"><h3>Wishlist</h3><button class="drawer-close" id="closeWishlist" type="button">✕</button></div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
+
   <section class="hero">
     <div class="hero-content">
+      <div class="hero-badge">Necklaces &amp; Sets</div>
       <h1>Statement Necklaces for Every Occasion</h1>
-      <p>Discover regal, lightweight, and sparkling necklace sets designed for bridal, festive, and everyday elegance.
-      </p>
+      <p>Discover regal, lightweight, and sparkling necklace sets designed for bridal, festive, and everyday elegance.</p>
       <a class="btn btn-primary" href="#products">Explore Necklaces</a>
     </div>
   </section>
 
   <div class="offer-banner">Special offer: buy more than 5 pieces and get <strong>30% discount</strong>.</div>
 
-  <section class="products" id="products">
-    <h2 class="section-title">Necklace Collection</h2>
-    <p style="text-align:center; color:#7b5d3d; margin-bottom:1.2rem;">Discover statement pieces that bring richness,
-      glow, and elegance to every occasion.</p>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/Neackales(1).jpg" alt="Necklace" />
-        <h4>Classic Layered Necklace</h4>
-        <div class="price">₹799</div>
-        <button type="button" data-name="Classic Layered Necklace" data-price="799">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/Neackales(2).jpg" alt="Necklace" />
-        <h4>Bridal Choker Set</h4>
-        <div class="price">₹1099</div>
-        <button type="button" data-name="Bridal Choker Set" data-price="1099">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/Neackales(3).jpg" alt="Necklace" />
-        <h4>Temple Pendant Necklace</h4>
-        <div class="price">₹899</div>
-        <button type="button" data-name="Temple Pendant Necklace" data-price="899">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/Neackales(4).jpg" alt="Necklace" />
-        <h4>Kundan Neckpiece</h4>
-        <div class="price">₹1299</div>
-        <button type="button" data-name="Kundan Neckpiece" data-price="1299">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/Neackales(5).jpg" alt="Necklace" />
-        <h4>Minimal Party Necklace</h4>
-        <div class="price">₹749</div>
-        <button type="button" data-name="Minimal Party Necklace" data-price="749">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/Neackales(6).jpg" alt="Necklace" />
-        <h4>Stone Drop Necklace</h4>
-        <div class="price">₹849</div>
-        <button type="button" data-name="Stone Drop Necklace" data-price="849">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/Neackales(7).jpg" alt="Necklace" />
-        <h4>Royal Pearl Set</h4>
-        <div class="price">₹949</div>
-        <button type="button" data-name="Royal Pearl Set" data-price="949">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="images/Neackales(8).jpg" alt="Necklace" />
-        <h4>Festive Long Necklace</h4>
-        <div class="price">₹899</div>
-        <button type="button" data-name="Festive Long Necklace" data-price="899">Add to Cart</button>
-      </div>
+  <section class="section products" id="products">
+    <div class="section-head reveal">
+      <h2 class="section-title">Necklace Collection</h2>
+      <p class="section-intro">Discover statement pieces that bring richness, glow, and elegance to every occasion.</p>
     </div>
+
+    <div class="toolbar">
+      <div class="toolbar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" id="toolbarSearch" placeholder="Search necklaces…" />
+      </div>
+      <div class="chip-row">
+        <button type="button" class="chip active" data-tag="all">All</button>
+        <button type="button" class="chip" data-tag="wedding">Wedding</button>
+        <button type="button" class="chip" data-tag="festive">Festive</button>
+        <button type="button" class="chip" data-tag="party">Party</button>
+        <button type="button" class="chip" data-tag="daily">Daily</button>
+      </div>
+      <select id="toolbarSort" class="toolbar-sort">
+        <option value="">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <p class="result-count" id="resultCount"></p>
+
+    <div class="product-grid" data-catalog="necklaces"></div>
   </section>
 
-  <script src="cart.js"></script>
+  <footer class="site-footer">© 2026 MadhavPrem. Elegant jewelry for every special moment.</footer>
+
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/catalog.js"></script>
+  <script src="../assets/js/ui.js"></script>
   <script src="../chatbot.js"></script>
 </body>
 

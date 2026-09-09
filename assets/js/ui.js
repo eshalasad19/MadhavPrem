@@ -5,6 +5,42 @@
    ============================================================ */
 
 /* -------- Navbar -------- */
+const CATEGORY_PAGES = {
+  bangles: 'Bangles/index.html',
+  necklaces: 'Neckales/index.html',
+  earrings: 'earrings/index.html',
+};
+const CATEGORY_KEYWORDS = {
+  bangles: ['bangle', 'bangles', 'bracelet'],
+  necklaces: ['necklace', 'necklaces', 'neckpiece', 'choker'],
+  earrings: ['earring', 'earrings', 'jhumka', 'jhumkas'],
+};
+
+function categoryUrl(catKey) {
+  const onHome = !document.body.dataset.category;
+  return (onHome ? '' : '../') + CATEGORY_PAGES[catKey];
+}
+
+// Decides which category page a search query belongs to —
+// first checks for a category name match, then searches product names.
+function resolveSearchTarget(rawQuery) {
+  const q = rawQuery.trim().toLowerCase();
+  if (!q) return null;
+
+  for (const [cat, words] of Object.entries(CATEGORY_KEYWORDS)) {
+    if (words.some(w => q.includes(w))) return { category: cat, query: q };
+  }
+
+  const matchCounts = {};
+  for (const [cat, items] of Object.entries(CATALOG)) {
+    matchCounts[cat] = items.filter(i => i.name.toLowerCase().includes(q)).length;
+  }
+  const best = Object.entries(matchCounts).sort((a, b) => b[1] - a[1])[0];
+  if (best && best[1] > 0) return { category: best[0], query: q };
+
+  return null;
+}
+
 function initNavbar() {
   const header = document.querySelector('.site-header');
   const toggle = document.querySelector('.nav-toggle');
@@ -21,15 +57,17 @@ function initNavbar() {
 
   document.querySelectorAll('[data-nav-search]').forEach(input => {
     input.addEventListener('keydown', e => {
-      if (e.key === 'Enter' && input.value.trim()) {
-        sessionStorage.setItem('mp-search-query', input.value.trim());
-        const onProductsPage = document.querySelector('.product-grid[data-catalog]');
-        if (onProductsPage) {
-          location.hash = '#products';
-          location.reload();
-        } else {
-          location.href = 'earrings/index.html';
-        }
+      if (e.key !== 'Enter' || !input.value.trim()) return;
+      const target = resolveSearchTarget(input.value);
+      if (!target) { toast(`No products found for "${input.value.trim()}"`); return; }
+
+      sessionStorage.setItem('mp-search-query', target.query);
+      const currentCategory = document.body.dataset.category;
+      if (currentCategory === target.category) {
+        location.hash = '#products';
+        location.reload();
+      } else {
+        location.href = categoryUrl(target.category);
       }
     });
   });

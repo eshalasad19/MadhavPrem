@@ -124,7 +124,10 @@ button { font-family: inherit; cursor: pointer; }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-.mobile-menu { display: none; }
+.mobile-menu {
+  display: none;
+  background-color: #faf6ef;
+}
 
 /* -------- SEARCH (navbar) -------- */
 .nav-search {
@@ -195,7 +198,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .feature-strip {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
-  max-width: var(--container); margin: -2.2rem auto 0; padding: 0 clamp(1rem, 4vw, 2.5rem);
+  max-width: var(--container); margin: 2.5rem auto 0; padding: 0 clamp(1rem, 4vw, 2.5rem);
   position: relative; z-index: 5;
 }
 .feature-card {
@@ -417,13 +420,13 @@ button { font-family: inherit; cursor: pointer; }
   .nav-actions .icon-btn { display: none; }
   .nav-toggle { display: flex; }
   .mobile-menu {
-    position: fixed; inset: var(--nav-h) 0 0 0; background: var(--ivory); z-index: 480;
-    padding: 1.5rem; display: flex; flex-direction: column; gap: 0.3rem;
-    transform: translateY(-12px); opacity: 0; pointer-events: none; transition: all 0.25s var(--ease);
+    position: fixed; inset: var(--nav-h) 0 0 0; background-color: #faf6ef; z-index: 480;
+    padding: 1.5rem; display: none; flex-direction: column; gap: 0.3rem; overflow-y: auto;
+    transform: translateY(-12px); opacity: 0; pointer-events: none; transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
   }
-  .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+  .mobile-menu.open { display: flex; transform: translateY(0); opacity: 1; pointer-events: all; }
   .mobile-menu a { padding: 0.9rem 0.4rem; border-bottom: 1px solid var(--border-soft); font-size: 1rem; color: var(--emerald); font-weight: 500; }
-  .mobile-menu .nav-search { display: flex; max-width: none; margin-top: 0.8rem; }
+  .mobile-menu .nav-search { display: flex; flex: 0 0 auto; max-width: none; margin-top: 0.8rem; }
   .mobile-menu-actions { display: flex; gap: 0.8rem; margin-top: 1rem; }
   .mobile-menu-actions button {
     flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
@@ -437,4 +440,10 @@ button { font-family: inherit; cursor: pointer; }
   .cat-grid { grid-template-columns: 1fr 1fr; gap: 0.9rem; }
   .product-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.9rem; }
   .toolbar { flex-direction: column; align-items: stretch; }
+  .product-price-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .product-price-row .add-btn { width: 100%; text-align: center; }
+  .product-info { padding: 0.8rem; }
+  .card-actions { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+  .card-actions button { width: 100%; white-space: normal; }
+  .link-btn { text-align: center; }
 }
